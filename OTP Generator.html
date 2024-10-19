@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .otp-container {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #e57070;
+            border-radius: 30px;
+        }
+        .otp {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #04020a;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #1baee3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.8s;
+        }
+        button:hover {
+            background-color: #ec30d0;
+        }
+    </style>
+</head>
+<body>
+    <div class="otp-container">
+       
+        <div id="otp-display" class="otp">Generate OTP</div>
+
+        
+        <button >Generate OTP</button>
+        <button id="generate-otp-btn">CLICK</button>
+    </div>
+
+    <script>
+        function generateOTP() {
+            const otpLength = 4;
+            let digits = '0123456789';
+            let otp = '';
+            for (let i = 0; i < otpLength; i++) {
+                otp += digits[Math.floor(Math.random() * 10)];
+            }
+            return otp;
+        }
+        document.getElementById('generate-otp-btn').addEventListener('click', function() {
+            const otp = generateOTP();
+            document.getElementById('otp-display').innerText = otp;
+        });
+    </script>
+</body>
+</html>
+
